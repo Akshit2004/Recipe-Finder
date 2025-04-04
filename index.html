@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Finder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="theme-toggle">
+        <button id="theme-btn">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+        </button>
+    </div>
+    
+    <div class="container">
+        <h1 class="main-title">Recipe Finder <span class="accent">✦</span></h1>
+        
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Enter ingredients or recipe name">
+            <button id="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+        
+        <div class="filters">
+            <select id="cuisine-filter">
+                <option value="">All Cuisines</option>
+                <option value="Italian">Italian</option>
+                <option value="Mexican">Mexican</option>
+                <option value="Indian">Indian</option>
+                <option value="Chinese">Chinese</option>
+                <option value="American">American</option>
+            </select>
+            
+            <select id="diet-filter">
+                <option value="">All Diets</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="vegan">Vegan</option>
+                <option value="gluten-free">Gluten-free</option>
+            </select>
+        </div>
+        
+        <div id="loader" class="loader">
+            <div class="spinner"></div>
+        </div>
+        
+        <div id="results-container" class="results-container">
+            <!-- Recipe results will be displayed here -->
+        </div>
+        
+        <div id="recipe-details" class="recipe-details">
+            <!-- Detailed recipe information will be displayed here -->
+        </div>
+    </div>
+
+    <footer>
+        <p>Created with <i class="fas fa-heart"></i> for food lovers</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
