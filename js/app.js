@@ -652,10 +652,10 @@ function displayRecipeDetail(recipe) {
   // Create nutritional info if available
   let nutritionHTML = '';
   if (recipe.nutrition && recipe.nutrition.nutrients) {
-    const mainNutrients = ['Calories', 'Fat', 'Carbohydrates', 'Protein', 'Fiber'];
+    const mainNutrients = ['Calories', 'Fat', 'Carbohydrates', 'Protein', 'Fiber', 'Sugar'];
     nutritionHTML = `
       <div class="nutrition-info">
-        <h3>Nutritional Information</h3>
+        <h3><i class="fas fa-chart-pie"></i> Nutritional Information</h3>
         <div class="nutrient-grid">
           ${recipe.nutrition.nutrients.filter(n => mainNutrients.includes(n.name)).map(nutrient => `
             <div class="nutrient">
@@ -695,7 +695,7 @@ function displayRecipeDetail(recipe) {
       </li>
     `).join('');
   } else {
-    instructionsHTML = '<li>No instructions available.</li>';
+    instructionsHTML = '<li><div class="step-number">!</div><div class="step-text">No instructions available.</div></li>';
   }
   
   // Dish types and cuisines
@@ -714,11 +714,11 @@ function displayRecipeDetail(recipe) {
     <div class="recipe-media">
       <img src="${recipe.image || 'https://via.placeholder.com/800x600?text=No+Image'}" alt="${recipe.title}">
       <div class="recipe-actions">
-        <button id="detail-fav-btn" class="${isFavorite ? 'active' : ''}">
+        <button id="detail-fav-btn" class="${isFavorite ? 'active' : ''}" title="${isFavorite ? 'Remove from favorites' : 'Add to favorites'}">
           <i class="fas ${isFavorite ? 'fa-heart' : 'fa-heart'}"></i>
         </button>
-        <button id="share-btn"><i class="fas fa-share-alt"></i></button>
-        <button id="print-btn"><i class="fas fa-print"></i></button>
+        <button id="share-btn" title="Share recipe"><i class="fas fa-share-alt"></i></button>
+        <button id="print-btn" title="Print recipe"><i class="fas fa-print"></i></button>
       </div>
     </div>
     
@@ -727,7 +727,7 @@ function displayRecipeDetail(recipe) {
         <i class="fas fa-clock"></i>
         <div>
           <span class="meta-title">Prep Time</span>
-          <span class="meta-value">${recipe.readyInMinutes} minutes</span>
+          <span class="meta-value">${recipe.readyInMinutes} min</span>
         </div>
       </div>
       <div class="meta-item">
@@ -741,11 +741,11 @@ function displayRecipeDetail(recipe) {
         <i class="fas fa-fire"></i>
         <div>
           <span class="meta-title">Calories</span>
-          <span class="meta-value">${recipe.nutrition?.nutrients?.find(n => n.name === 'Calories')?.amount.toFixed(0) || 'N/A'} kcal</span>
+          <span class="meta-value">${recipe.nutrition?.nutrients?.find(n => n.name === 'Calories')?.amount.toFixed(0) || 'N/A'}</span>
         </div>
       </div>
       <div class="meta-item">
-        <i class="fas ${recipe.healthScore > 70 ? 'fa-heart' : 'fa-heartbeat'}"></i>
+        <i class="fas fa-heart-pulse"></i>
         <div>
           <span class="meta-title">Health Score</span>
           <span class="meta-value">${recipe.healthScore}/100</span>
@@ -762,27 +762,28 @@ function displayRecipeDetail(recipe) {
     
     ${recipe.summary ? `
       <div class="recipe-summary">
-        <h3>Summary</h3>
-        <p>${recipe.summary}</p>
+        <h3><i class="fas fa-info-circle"></i> About this recipe</h3>
+        <p>${recipe.summary.replace(/<\/?[^>]+(>|$)/g, "")}</p>
       </div>
     ` : ''}
     
     <div class="recipe-content">
       <div class="recipe-ingredients">
-        <h3>Ingredients</h3>
+        <h3><i class="fas fa-shopping-basket"></i> Ingredients</h3>
         <ul class="ingredients-list">
           ${ingredientsHTML}
         </ul>
-        ${nutritionHTML}
       </div>
       
       <div class="recipe-instructions">
-        <h3>Instructions</h3>
+        <h3><i class="fas fa-list-ol"></i> Instructions</h3>
         <ol class="instructions-list">
           ${instructionsHTML}
         </ol>
       </div>
     </div>
+    
+    ${nutritionHTML}
     
     <div class="cooking-cta">
       <button id="start-cooking"><i class="fas fa-chef-hat"></i> Start Cooking Mode</button>
