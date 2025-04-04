@@ -57,20 +57,20 @@
       "purpose": "any maskable"
     }
   ],
-  "scope": "/",
+  "scope": "https://culinaryq.netlify.app/",
   "shortcuts": [
     {
       "name": "Search Recipes",
       "short_name": "Search",
       "description": "Search for recipes",
-      "url": "/index.html#search",
+      "url": "https://culinaryq.netlify.app/index.html#search",
       "icons": [{ "src": "assets/logo.png", "sizes": "96x96" }]
     },
     {
       "name": "Favorite Recipes",
       "short_name": "Favorites",
       "description": "View your favorite recipes",
-      "url": "/index.html#favorites",
+      "url": "https://culinaryq.netlify.app/index.html#favorites",
       "icons": [{ "src": "assets/logo.png", "sizes": "96x96" }]
     }
   ],
