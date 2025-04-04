@@ -1,66 +1,253 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe Finder</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culinary Quest | Discover Amazing Recipes</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assests/logo.png">
 </head>
-<body>
-    <div class="theme-toggle">
-        <button id="theme-btn">
-            <i class="fas fa-moon"></i>
-            <i class="fas fa-sun"></i>
+<body class="dark-theme">
+  <header>
+    <nav class="main-nav">
+      <div class="logo">
+        <i class="fas fa-fire"></i>
+        <h1>Culinary Quest</h1>
+      </div>
+      <div class="nav-links">
+        <a href="#" class="active" data-section="home"><i class="fas fa-home"></i><span>Home</span></a>
+        <a href="#" id="favoritesLink" data-section="favorites"><i class="fas fa-heart"></i><span>Favorites</span></a>
+        <a href="#" id="mealPlannerLink" data-section="planner"><i class="fas fa-calendar-alt"></i><span>Meal Planner</span></a>
+        <a href="#" id="randomRecipe"><i class="fas fa-random"></i><span>Surprise Me</span></a>
+      </div>
+      <div class="nav-right">
+        <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Toggle mobile menu">
+          <i class="fas fa-bars"></i>
         </button>
-    </div>
-    
-    <div class="container">
-        <h1 class="main-title">Recipe Finder <span class="accent">✦</span></h1>
-        
+        <button id="themeToggle"><i class="fas fa-moon"></i></button>
+        <button id="showProfile"><i class="fas fa-user"></i></button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile bottom navigation for extra small screens -->
+  <div class="fixed-bottom-nav">
+    <a href="#" class="active" data-section="home"><i class="fas fa-home"></i><span>Home</span></a>
+    <a href="#" id="mobileSearchBtn"><i class="fas fa-search"></i><span>Search</span></a>
+    <a href="#" id="mobileFavoritesLink" data-section="favorites"><i class="fas fa-heart"></i><span>Favorites</span></a>
+    <a href="#" id="mobileRandomBtn"><i class="fas fa-random"></i><span>Random</span></a>
+  </div>
+
+  <main>
+    <section id="heroSection" class="hero">
+      <div class="hero-content">
+        <h2>Discover <span class="accent-text">Extraordinary</span> Recipes</h2>
+        <p>Find and save the perfect recipes for any occasion</p>
         <div class="search-container">
-            <input type="text" id="search-input" placeholder="Enter ingredients or recipe name">
-            <button id="search-btn"><i class="fas fa-search"></i></button>
+          <input type="text" id="search" placeholder="Search for recipes...">
+          <button id="searchBtn"><i class="fas fa-search"></i></button>
         </div>
-        
-        <div class="filters">
-            <select id="cuisine-filter">
-                <option value="">All Cuisines</option>
-                <option value="Italian">Italian</option>
-                <option value="Mexican">Mexican</option>
-                <option value="Indian">Indian</option>
-                <option value="Chinese">Chinese</option>
-                <option value="American">American</option>
+        <div class="trending-tags">
+          <p>Trending:</p>
+          <a href="#" class="tag" data-search="pasta">Pasta</a>
+          <a href="#" class="tag" data-search="chicken">Chicken</a>
+          <a href="#" class="tag" data-search="vegetarian">Vegetarian</a>
+          <a href="#" class="tag" data-search="dessert">Dessert</a>
+        </div>
+      </div>
+      <div class="hero-overlay"></div>
+    </section>
+
+    <section id="filterSection" class="filters-section">
+      <div class="filters-container">
+        <div class="filters-header">
+          <h3>Refine your search</h3>
+          <button id="toggleFilters"><i class="fas fa-sliders-h"></i></button>
+        </div>
+        <div class="filters-body">
+          <div class="filter">
+            <label><i class="fas fa-globe-americas"></i> Cuisine:</label>
+            <select id="cuisine">
+              <option value="">Any</option>
+              <option value="italian">Italian</option>
+              <option value="mexican">Mexican</option>
+              <option value="asian">Asian</option>
+              <option value="indian">Indian</option>
+              <option value="french">French</option>
+              <option value="american">American</option>
+              <option value="mediterranean">Mediterranean</option>
+              <option value="thai">Thai</option>
+              <option value="chinese">Chinese</option>
+              <option value="japanese">Japanese</option>
             </select>
-            
-            <select id="diet-filter">
-                <option value="">All Diets</option>
-                <option value="vegetarian">Vegetarian</option>
-                <option value="vegan">Vegan</option>
-                <option value="gluten-free">Gluten-free</option>
+          </div>
+          <div class="filter">
+            <label><i class="fas fa-leaf"></i> Diet:</label>
+            <select id="diet">
+              <option value="">Any</option>
+              <option value="vegetarian">Vegetarian</option>
+              <option value="vegan">Vegan</option>
+              <option value="gluten-free">Gluten Free</option>
+              <option value="ketogenic">Keto</option>
+              <option value="paleo">Paleo</option>
+              <option value="pescetarian">Pescetarian</option>
+              <option value="whole30">Whole30</option>
             </select>
+          </div>
+          <div class="filter">
+            <label><i class="fas fa-utensils"></i> Meal Type:</label>
+            <select id="type">
+              <option value="">Any</option>
+              <option value="main course">Main Course</option>
+              <option value="side dish">Side Dish</option>
+              <option value="dessert">Dessert</option>
+              <option value="appetizer">Appetizer</option>
+              <option value="breakfast">Breakfast</option>
+              <option value="soup">Soup</option>
+              <option value="salad">Salad</option>
+              <option value="drink">Drink</option>
+            </select>
+          </div>
+          <div class="filter">
+            <label><i class="fas fa-clock"></i> Max Time (minutes):</label>
+            <input type="range" id="maxTime" min="5" max="120" step="5" value="60">
+            <span id="timeValue">60 min</span>
+          </div>
+          <button id="resetFilters" class="btn btn-secondary">Reset</button>
         </div>
-        
-        <div id="loader" class="loader">
-            <div class="spinner"></div>
+      </div>
+    </section>
+
+    <section id="contentSection" class="content">
+      <div id="home-section" class="section-container active-section">
+        <div id="featuredRecipes" class="featured-recipes">
+          <h3 class="section-title">Featured Recipes</h3>
+          <div class="featured-slider">
+            <!-- Featured recipes will be injected here -->
+          </div>
         </div>
-        
-        <div id="results-container" class="results-container">
-            <!-- Recipe results will be displayed here -->
+
+        <div id="resultsContainer">
+          <h3 class="section-title">Popular Recipes</h3>
+          <div id="results" class="recipe-grid"></div>
+          <div class="pagination">
+            <button id="loadMore" class="btn btn-primary">Load More</button>
+          </div>
         </div>
-        
-        <div id="recipe-details" class="recipe-details">
-            <!-- Detailed recipe information will be displayed here -->
+      </div>
+
+      <div id="recipe-detail" class="hidden">
+        <!-- Recipe details will be injected here -->
+      </div>
+
+      <div id="favorites-container" class="section-container hidden">
+        <h2 class="section-title">Your Favorite Recipes</h2>
+        <div id="favorites-list" class="recipe-grid"></div>
+      </div>
+
+      <div id="planner-container" class="section-container hidden">
+        <h2 class="section-title">Weekly Meal Planner</h2>
+        <div class="meal-planner">
+          <div class="planner-controls">
+            <button id="prevWeek" class="btn btn-secondary"><i class="fas fa-chevron-left"></i></button>
+            <h3 id="weekRange">May 1 - May 7</h3>
+            <button id="nextWeek" class="btn btn-secondary"><i class="fas fa-chevron-right"></i></button>
+          </div>
+          <div class="week-container">
+            <!-- Days will be injected here -->
+          </div>
+          <button id="generateMealPlan" class="btn btn-primary">Generate Meal Plan</button>
         </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="cookingMode" class="cooking-mode hidden">
+    <div class="cooking-header">
+      <h2 id="cookingRecipeTitle">Recipe Title</h2>
+      <div class="cooking-controls">
+        <button id="toggleTimer"><i class="fas fa-clock"></i> Timer</button>
+        <button id="exitCooking"><i class="fas fa-times"></i></button>
+      </div>
     </div>
+    <div class="cooking-content">
+      <div class="ingredients-panel">
+        <h3>Ingredients</h3>
+        <div id="cookingIngredients" class="check-list">
+          <!-- Ingredients with checkboxes will be injected here -->
+        </div>
+      </div>
+      <div class="steps-panel">
+        <h3>Steps</h3>
+        <div id="cookingSteps" class="step-list">
+          <!-- Steps will be injected here -->
+        </div>
+      </div>
+    </div>
+    <div id="timerPanel" class="timer-panel hidden">
+      <div class="timer-display">
+        <span id="timerMinutes">00</span>:<span id="timerSeconds">00</span>
+      </div>
+      <div class="timer-controls">
+        <button id="setTimer" class="btn btn-secondary">Set</button>
+        <button id="startTimer" class="btn btn-primary">Start</button>
+        <button id="pauseTimer" class="btn btn-secondary">Pause</button>
+        <button id="resetTimer" class="btn btn-secondary">Reset</button>
+      </div>
+    </div>
+  </div>
 
-    <footer>
-        <p>Created with <i class="fas fa-heart"></i> for food lovers</p>
-    </footer>
+  <div id="loading" class="loading hidden">
+    <div class="spinner-container">
+      <div class="spinner"></div>
+      <p>Finding deliciousness...</p>
+    </div>
+  </div>
 
-    <script src="js/app.js"></script>
+  <div id="notification" class="notification hidden">
+    <i class="notification-icon"></i>
+    <p class="notification-message"></p>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <i class="fas fa-fire"></i>
+        <h2>Culinary Quest</h2>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h3>Explore</h3>
+          <a href="#">Popular Recipes</a>
+          <a href="#">Seasonal</a>
+          <a href="#">Quick & Easy</a>
+          <a href="#">Cuisines</a>
+        </div>
+        <div class="footer-column">
+          <h3>Learn</h3>
+          <a href="#">Cooking Basics</a>
+          <a href="#">Techniques</a>
+          <a href="#">Ingredient Guides</a>
+          <a href="#">Videos</a>
+        </div>
+        <div class="footer-column">
+          <h3>Connect</h3>
+          <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="#"><i class="fab fa-pinterest"></i> Pinterest</a>
+          <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+          <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Culinary Quest. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <script src="js/app.js"></script>
 </body>
 </html>
