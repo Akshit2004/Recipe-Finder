@@ -2070,9 +2070,9 @@ footer {
     font-size: 1rem;
   }
   
-  /* Fixed navigation at bottom */
+  /* Fixed navigation at bottom - Show on mobile */
   .fixed-bottom-nav {
-    display: flex;
+    display: flex !important; /* Force display on mobile */
     position: fixed;
     bottom: 0;
     left: 0;
@@ -2085,53 +2085,6 @@ footer {
     justify-content: space-around;
     z-index: 999;
     box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-  }
-  
-  .fixed-bottom-nav a {
-    flex-direction: column;
-    align-items: center;
-    padding: 0.5rem;
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-  }
-  
-  .fixed-bottom-nav a i {
-    font-size: 1.2rem;
-    margin-bottom: 0.3rem;
-  }
-  
-  .fixed-bottom-nav a.active {
-    color: var(--primary);
-  }
-  
-  /* Add padding at the bottom for fixed nav */
-  body {
-    padding-bottom: 70px;
-  }
-  
-  /* Loading indicator adjustment */
-  .spinner-container {
-    padding: 1.5rem;
-  }
-  
-  .spinner {
-    width: 50px;
-    height: 50px;
-  }
-  
-  /* Filter adjustments */
-  .filter label {
-    font-size: 0.9rem;
-  }
-  
-  .filter select {
-    padding: 0.6rem;
-    font-size: 0.9rem;
-  }
-  
-  .cooking-cta button {
-    width: 100%;
-    justify-content: center;
   }
 }
 
@@ -2296,4 +2249,9 @@ footer {
 /* Trigger the animation on hover */
 #loadMore:hover::after {
   animation: expandWidth 0.5s forwards;
+}
+
+/* Fixed navigation at bottom - Hidden by default */
+.fixed-bottom-nav {
+  display: none;
 }
