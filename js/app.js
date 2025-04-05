@@ -19,7 +19,6 @@ const loadMoreBtn = document.getElementById('loadMore');
 const navLinks = document.querySelectorAll('.nav-links a');
 const sectionContainers = document.querySelectorAll('.section-container');
 const themeToggle = document.getElementById('themeToggle') || createThemeToggle();
-const mealPlannerLink = document.getElementById('mealPlannerLink');
 
 // DOM elements - Filters
 const cuisineFilter = document.getElementById('cuisine');
@@ -132,6 +131,9 @@ function init() {
   // Apply saved theme first
   setTheme();
   
+  // Add WebView-specific adjustments
+  handleWebViewSpecifics();
+  
   // Add scroll observer for animation effects
   addScrollObserver();
   
@@ -149,6 +151,39 @@ function init() {
   
   // Hide loading initially
   hideLoading();
+}
+
+// Add this function to handle WebView specifics
+function handleWebViewSpecifics() {
+  // Check if running in Android WebView
+  if (navigator.userAgent.includes('wv') || 
+      navigator.userAgent.includes('Android') && navigator.userAgent.includes('Version')) {
+    
+    // Add a class to identify WebView
+    document.body.classList.add('in-app-webview');
+    
+    // Set a CSS variable with the estimated status bar height
+    // Different Android versions and devices have different status bar heights
+    let statusBarHeight = 24; // Default estimate
+    
+    // Try to detect taller status bars on various devices
+    if (window.innerWidth > 400 && window.devicePixelRatio >= 2.5) {
+      statusBarHeight = 32; // Higher density screens often have taller status bars
+    }
+    
+    document.documentElement.style.setProperty('--status-bar-height', `${statusBarHeight}px`);
+    
+    // Add resize listener to handle orientation changes
+    window.addEventListener('resize', () => {
+      // Small delay to ensure all orientation changes complete
+      setTimeout(() => {
+        document.body.style.height = `${window.innerHeight}px`;
+      }, 300);
+    });
+    
+    // Initial height setting
+    document.body.style.height = `${window.innerHeight}px`;
+  }
 }
 
 // Show loading indicator with improved animation

@@ -45,6 +45,20 @@
   --text-primary: var(--text-primary-light);
   --text-secondary: var(--text-secondary-light);
   --border: var(--border-light);
+
+  /* Safe Area Variables */
+  --safe-area-inset-top: env(safe-area-inset-top, 0px);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-inset-left: env(safe-area-inset-left, 0px);
+  --safe-area-inset-right: env(safe-area-inset-right, 0px);
+  --status-bar-height: 0px;
+}
+
+/* Add for Android WebView detection */
+@supports (-webkit-appearance: none) and (display: -webkit-box) {
+  :root {
+    --status-bar-height: 24px;
+  }
 }
 
 /* Dark Theme Class */
@@ -68,6 +82,7 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Adjust body for safe areas */
 body {
   font-family: 'Poppins', sans-serif;
   color: var(--text-primary);
@@ -79,6 +94,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  padding-top: calc(70px + var(--safe-area-inset-top) + var(--status-bar-height));
 }
 
 /* Prevent scrolling when modal is active */
@@ -145,7 +161,9 @@ h1, h2, h3, h4, h5 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: calc(1rem + var(--safe-area-inset-top) + var(--status-bar-height)) 2rem 1rem;
+  padding-left: calc(2rem + var(--safe-area-inset-left));
+  padding-right: calc(2rem + var(--safe-area-inset-right));
   background-color: var(--surface);
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
@@ -155,6 +173,7 @@ h1, h2, h3, h4, h5 {
   top: 0;
   left: 0;
   right: 0;
+  height: auto;
   z-index: 1000;
 }
 
@@ -163,9 +182,9 @@ h1, h2, h3, h4, h5 {
   align-items: center;
 }
 
-.logo i {
-  color: var(--primary);
-  font-size: 1.8rem;
+.logo img {
+  height: 32px;
+  width: auto;
   margin-right: 0.5rem;
   filter: drop-shadow(0 0 5px rgba(255, 59, 59, 0.5));
 }
@@ -418,7 +437,8 @@ body.mobile-menu-open {
   justify-content: center;
   align-items: center;
   position: relative;
-  margin-top: 70px;
+  margin-top: 0;
+  padding-top: calc(70px + var(--safe-area-inset-top) + var(--status-bar-height));
   text-align: center;
   overflow: hidden;
 }
@@ -531,7 +551,7 @@ body.mobile-menu-open {
   box-shadow: var(--glass-shadow);
   border-bottom: var(--glass-border);
   position: sticky;
-  top: 70px;
+  top: calc(70px + var(--safe-area-inset-top) + var(--status-bar-height));
   z-index: 99;
 }
 
@@ -1538,88 +1558,138 @@ body.mobile-menu-open {
   gap: 0.5rem;
 }
 
-/* Meal Planner */
-.meal-planner {
-  background: var(--card);
+/* Modal for adding meals */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
-  padding: 2rem;
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal.show {
+  opacity: 1;
+}
+
+.modal-content {
+  background-color: var(--surface);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
   border-radius: var(--border-radius-lg);
+  max-width: 600px;
+  width: 90%;
   box-shadow: var(--glass-shadow);
   border: var(--glass-border);
+  transform: scale(0.9);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.planner-controls {
+.modal.show .modal-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.modal-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.close-modal {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: all 0.2s ease;
+}
+
+.close-modal:hover {
+  background-color: rgba(255,59,59,0.1);
+  color: var(--primary);
+}
+
+.modal-body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  max-height: calc(90vh - 80px);
+}
+
+.meal-search-results {
+  margin-top: 1rem;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.search-result-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 2rem;
-}
-
-.week-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.day-card {
-  background-color: var(--surface);
-  backdrop-filter: blur(var(--glass-blur)/2);
-  -webkit-backdrop-filter: blur(var(--glass-blur)/2);
-  border-radius: var(--border-radius-md);
-  padding: 1rem;
-  box-shadow: var(--shadow-sm);
-  border: var(--glass-border);
-}
-
-.day-header {
-  font-weight: 600;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--border);
-}
-
-.meal-card {
-  background-color: var(--card);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: var(--border-radius-sm);
   padding: 0.8rem;
-  margin-bottom: 0.8rem;
+  border-radius: var(--border-radius-md);
+  margin-bottom: 0.5rem;
   cursor: pointer;
-  transition: all 0.3s;
-  border: var(--glass-border);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  border: 1px solid var(--border);
+  background-color: var(--card);
 }
 
-.meal-card:hover {
+.search-result-item:hover {
+  background-color: var(--card);
+  transform: translateY(-2px);
   border-color: var(--primary);
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
-.meal-card h4 {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.meal-type {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  background-color: rgba(255,59,59,0.1);
-  padding: 0.2rem 0.5rem;
-  border-radius: 10px;
-  display: inline-block;
-  margin-bottom: 0.5rem;
-}
-
-.empty-meal {
-  text-align: center;
-  padding: 1rem;
-  color: var(--text-secondary);
-  border: 1px dashed var(--border);
+.search-result-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
   border-radius: var(--border-radius-sm);
+  margin-right: 1rem;
+}
+
+.result-info {
+  flex: 1;
+}
+
+.result-info h4 {
+  margin: 0;
+  margin-bottom: 0.3rem;
+  color: var(--text-primary);
+}
+
+.searching, .no-results, .error {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-secondary);
+}
+
+.error {
+  color: #ff3b3b;
 }
 
 /* Loading & Notification */
@@ -1726,10 +1796,11 @@ footer {
   margin-bottom: 1rem;
 }
 
-.footer-logo i {
-  color: var(--primary);
-  font-size: 1.5rem;
+.footer-logo img {
+  height: 28px;
+  width: auto;
   margin-right: 0.5rem;
+  filter: drop-shadow(0 0 3px rgba(255, 59, 59, 0.4));
 }
 
 .footer-logo h2 {
@@ -1878,12 +1949,16 @@ footer {
 }
 
 @media (max-width: 768px) {
+  body {
+    padding-bottom: calc(70px + var(--safe-area-inset-bottom));
+  }
+
   .hero h2 {
     font-size: 2.5rem;
   }
   
   .main-nav {
-    padding: 1rem;
+    padding: calc(0.8rem + var(--safe-area-inset-top) + var(--status-bar-height)) 1rem 0.8rem;
   }
   
   .logo h1 {
@@ -1998,7 +2073,7 @@ footer {
     border-top: var(--glass-border);
     backdrop-filter: blur(var(--glass-blur));
     -webkit-backdrop-filter: blur(var(--glass-blur));
-    padding: 0.7rem 0;
+    padding: calc(0.7rem + var(--safe-area-inset-bottom));
     display: flex;
     justify-content: space-around;
     z-index: 999;
@@ -2147,6 +2222,31 @@ footer {
   .cooking-cta button {
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
+  }
+}
+
+/* Add detection for in-app WebView */
+@media (display-mode: standalone), (display-mode: fullscreen), (display-mode: minimal-ui) {
+  :root {
+    --status-bar-height: 24px; /* Standard status bar height */
+  }
+  
+  @supports (padding-top: constant(safe-area-inset-top)) {
+    :root {
+      --safe-area-inset-top: constant(safe-area-inset-top);
+      --safe-area-inset-bottom: constant(safe-area-inset-bottom);
+      --safe-area-inset-left: constant(safe-area-inset-left);
+      --safe-area-inset-right: constant(safe-area-inset-right);
+    }
+  }
+  
+  @supports (padding-top: env(safe-area-inset-top)) {
+    :root {
+      --safe-area-inset-top: env(safe-area-inset-top);
+      --safe-area-inset-bottom: env(safe-area-inset-bottom);
+      --safe-area-inset-left: env(safe-area-inset-left);
+      --safe-area-inset-right: env(safe-area-inset-right);
+    }
   }
 }
 

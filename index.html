@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Culinary Quest | Discover Amazing Recipes</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -16,13 +18,12 @@
   <header>
     <nav class="main-nav">
       <div class="logo">
-        <i class="fas fa-fire"></i>
+        <img src="assets/logo.png" alt="Culinary Quest Logo">
         <h1>Culinary Quest</h1>
       </div>
       <div class="nav-links">
         <a href="#" class="active" data-section="home"><i class="fas fa-home"></i><span>Home</span></a>
         <a href="#" id="favoritesLink" data-section="favorites"><i class="fas fa-heart"></i><span>Favorites</span></a>
-        <a href="#" id="mealPlannerLink" data-section="planner"><i class="fas fa-calendar-alt"></i><span>Meal Planner</span></a>
         <a href="#" id="randomRecipe"><i class="fas fa-random"></i><span>Surprise Me</span></a>
       </div>
       <div class="nav-right">
@@ -145,21 +146,6 @@
         <h2 class="section-title">Your Favorite Recipes</h2>
         <div id="favorites-list" class="recipe-grid"></div>
       </div>
-
-      <div id="planner-container" class="section-container hidden">
-        <h2 class="section-title">Weekly Meal Planner</h2>
-        <div class="meal-planner">
-          <div class="planner-controls">
-            <button id="prevWeek" class="btn btn-secondary"><i class="fas fa-chevron-left"></i></button>
-            <h3 id="weekRange">May 1 - May 7</h3>
-            <button id="nextWeek" class="btn btn-secondary"><i class="fas fa-chevron-right"></i></button>
-          </div>
-          <div class="week-container">
-            <!-- Days will be injected here -->
-          </div>
-          <button id="generateMealPlan" class="btn btn-primary">Generate Meal Plan</button>
-        </div>
-      </div>
     </section>
   </main>
 
@@ -213,7 +199,7 @@
   <footer>
     <div class="footer-content">
       <div class="footer-logo">
-        <i class="fas fa-fire"></i>
+        <img src="assets/logo.png" alt="Culinary Quest Logo">
         <h2>Culinary Quest</h2>
       </div>
       <div class="footer-links">
