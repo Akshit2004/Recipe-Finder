@@ -1,21 +1,15 @@
-<div align="center">
-  <h1 style="font-size: 3em;">🍽️ Culinary Quest - Recipe Finder 🍳</h1>
-</div>
+# 🍽️ Culinary Quest - Recipe Finder 🍳
 
 ![Culinary Quest Banner](assets/banner.png)
 
-<div align="center">
-  <h2>🌟 Find the Perfect Recipe for Any Occasion! 🌟</h2>
-  
-  ![Website Status](https://img.shields.io/badge/Website-Live-brightgreen)
-  ![App Status](https://img.shields.io/badge/Android%20App-Available-blue)
-</div>
-
----
+## 🌟 Find the Perfect Recipe for Any Occasion!
 
 Culinary Quest is a delightful recipe discovery platform designed to inspire your cooking journey! Whether you're a seasoned chef or just starting out, our application helps you find, save, and cook amazing recipes tailored to your preferences and dietary requirements.
 
-## ✨ FEATURES
+![Website Status](https://img.shields.io/badge/Website-Live-brightgreen)
+![App Status](https://img.shields.io/badge/Android%20App-Available-blue)
+
+## ✨ Features
 
 ### 🔍 Smart Recipe Search
 - **Intelligent filtering** by cuisine, diet type, meal type, and prep time
@@ -47,7 +41,7 @@ Culinary Quest is a delightful recipe discovery platform designed to inspire you
 - **Responsive web application** for desktop and mobile browsers
 - **Native Android app** built with Kotlin for optimal mobile experience
 
-## 🛠️ TECHNOLOGY STACK
+## 🛠️ Technology Stack
 
 ### Web Application
 - **Frontend**: HTML5, CSS3, JavaScript
@@ -63,7 +57,7 @@ Culinary Quest is a delightful recipe discovery platform designed to inspire you
 - **Image Loading**: Coil
 - **Local Storage**: Room Database
 
-## 📱 DOWNLOAD & INSTALLATION
+## 📱 Download & Installation
 
 ### Web Application
 Visit our [live website](https://culinary-quest.com) to start exploring recipes instantly!
@@ -76,9 +70,7 @@ Currently, the Culinary Quest app is available as a direct APK download:
 3. **Install the APK** by opening the downloaded file
 4. **Enjoy cooking** with our beautiful Kotlin-based application!
 
----
-
-## 🚀 GETTING STARTED
+## 🚀 Getting Started
 
 ### Web Application
 
@@ -96,7 +88,10 @@ python -m http.server 8000
 
 3. Visit `http://localhost:8000` in your browser
 
-## 💫 KEY FEATURES IN ACTION
+### Building the Android App
+
+
+## 💫 Key Features in Action
 
 - 🔄 **Real-time recipe filtering** - Instantly find recipes that match your criteria
 - 🔖 **Save favorites** - Keep track of recipes you love
@@ -104,7 +99,7 @@ python -m http.server 8000
 - 🌓 **Dark mode** - Easy on the eyes during evening cooking sessions
 - 🍲 **Meal planning** - Plan your meals for the entire week
 
-## 🚧 ROADMAP
+## 🚧 Roadmap
 
 - 📊 Recipe ratings and reviews
 - 📝 Custom recipe creation
@@ -112,7 +107,7 @@ python -m http.server 8000
 - 👨‍👩‍👧‍👦 Family meal planning
 - 📱 iOS app development
 
-## 🤝 CONTRIBUTING
+## 🤝 Contributing
 
 Contributions are welcome! Feel free to open issues or submit pull requests.
 
@@ -122,11 +117,11 @@ Contributions are welcome! Feel free to open issues or submit pull requests.
 4. Push to the branch: `git push origin feature/amazing-feature`
 5. Open a Pull Request
 
-## 📄 LICENSE
+## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
-## 🙏 ACKNOWLEDGEMENTS
+## 🙏 Acknowledgements
 
 - [Spoonacular API](https://spoonacular.com/food-api) for the comprehensive recipe database
 - [Font Awesome](https://fontawesome.com/) for the beautiful icons
@@ -134,6 +129,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ---
 
-<div align="center">
-  <h3>Made with ❤️ by <a href="https://github.com/Akshit2004">Akshit Mahajan</a></h3>
-</div>
+Made with ❤️ by [Akshit Mahajan](https://github.com/Akshit2004)
