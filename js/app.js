@@ -131,6 +131,9 @@ function init() {
   // Apply saved theme first
   setTheme();
   
+  // Enhance search box interactions
+  enhanceSearchBox();
+  
   // Add WebView-specific adjustments
   handleWebViewSpecifics();
   
@@ -151,6 +154,58 @@ function init() {
   
   // Hide loading initially
   hideLoading();
+}
+
+// Enhance search box with interactive behaviors
+function enhanceSearchBox() {
+  const searchInput = document.getElementById('search');
+  const searchContainer = document.querySelector('.search-container');
+  
+  if (searchInput) {
+    // Focus effects
+    searchInput.addEventListener('focus', () => {
+      if (searchContainer) searchContainer.classList.add('focused');
+    });
+    
+    searchInput.addEventListener('blur', () => {
+      if (searchContainer) searchContainer.classList.remove('focused');
+    });
+    
+    // Clear button functionality if needed
+    searchInput.addEventListener('input', function() {
+      if (this.value) {
+        this.classList.add('has-text');
+      } else {
+        this.classList.remove('has-text');
+      }
+    });
+
+    // Prevent zoom on focus for mobile devices
+    searchInput.addEventListener('focus', function() {
+      // On mobile, ensure the hero section is visible when searching
+      if (window.innerWidth <= 480) {
+        const heroSection = document.getElementById('heroSection');
+        if (heroSection) {
+          heroSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  }
+
+  // Fix mobile search button
+  const mobileSearchBtn = document.getElementById('mobileSearchBtn');
+  if (mobileSearchBtn) {
+    mobileSearchBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      // Focus the search input by scrolling to hero and focusing
+      const heroSection = document.getElementById('heroSection');
+      const searchInput = document.getElementById('search');
+      if (heroSection && searchInput) {
+        heroSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(() => searchInput.focus(), 500);
+      }
+    });
+  }
 }
 
 // Add this function to handle WebView specifics
@@ -184,6 +239,26 @@ function handleWebViewSpecifics() {
     // Initial height setting
     document.body.style.height = `${window.innerHeight}px`;
   }
+
+  // Fix for mobile viewport issues
+  const viewportMeta = document.querySelector('meta[name="viewport"]');
+  if (viewportMeta) {
+    // Force proper viewport settings
+    viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+  }
+  
+  // Prevent page zoom on inputs
+  document.addEventListener('gesturestart', function(e) {
+    e.preventDefault();
+  });
+  
+  // Add an event listener for orientation changes
+  window.addEventListener('orientationchange', function() {
+    // Small delay to ensure DOM updates
+    setTimeout(function() {
+      window.scrollTo(0, 0);
+    }, 300);
+  });
 }
 
 // Show loading indicator with improved animation

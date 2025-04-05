@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="apple-mobile-web-app-capable"="yes">
-  <meta name="apple-mobile-web-app-status-bar-style"="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Culinary Quest | Discover Amazing Recipes</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -42,26 +42,37 @@
 
   <main>
     <section id="heroSection" class="hero">
-      <video class="hero-video" autoplay loop muted playsinline>
+      <video class="hero-video" autoplay loop muted playsinline preload="auto" poster="assets/video-poster.jpg">
         <source src="assets/Hero_Video.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
       <div class="hero-content">
-        <h2>Discover <span class="accent-text">Extraordinary</span> Recipes</h2>
-        <p>Find and save the perfect recipes for any occasion</p>
+        <div class="hero-text-container">
+          <h2>Discover <span class="accent-text">Delicious</span> <br>Recipes Every Day</h2>
+          <p>Find and save the perfect meals for any occasion with our curated collection</p>
+        </div>
         <div class="search-container">
-          <input type="text" id="search" placeholder="Search for recipes...">
-          <button id="searchBtn"><i class="fas fa-search"></i></button>
+          <div class="search-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <input type="text" id="search" placeholder="What would you like to cook today?">
+          <button id="searchBtn">
+            <i class="fas fa-utensils"></i> Find Recipes
+          </button>
         </div>
         <div class="trending-tags">
-          <p>Trending:</p>
-          <a href="#" class="tag" data-search="pasta">Pasta</a>
-          <a href="#" class="tag" data-search="chicken">Chicken</a>
-          <a href="#" class="tag" data-search="vegetarian">Vegetarian</a>
-          <a href="#" class="tag" data-search="dessert">Dessert</a>
+          <span class="trending-label">Popular:</span>
+          <div class="tags-wrapper">
+            <a href="#" class="tag" data-search="pasta"><i class="fas fa-utensils"></i> Pasta</a>
+            <a href="#" class="tag" data-search="chicken"><i class="fas fa-drumstick-bite"></i> Chicken</a>
+            <a href="#" class="tag" data-search="vegetarian"><i class="fas fa-leaf"></i> Vegetarian</a>
+            <a href="#" class="tag" data-search="dessert"><i class="fas fa-cookie"></i> Dessert</a>
+            <a href="#" class="tag" data-search="quick"><i class="fas fa-clock"></i> Quick</a>
+          </div>
         </div>
       </div>
       <div class="hero-overlay"></div>
+      <div class="hero-shape"></div>
     </section>
 
     <section id="filterSection" class="filters-section">
