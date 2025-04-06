@@ -1,143 +1,150 @@
-# 🍽️ Culinary Quest - Recipe Finder 🍳
+<div align="center">
+  <img src="assets/logo.png" alt="Culinary Quest Logo" width="120">
+  <h1>Culinary Quest</h1>
+  <p><strong>Your Ultimate Recipe Discovery Platform</strong></p>
+  
+  <p>
+    <a href="#features">Features</a> •
+    <a href="#installation">Installation</a> •
+    <a href="#tech-stack">Tech Stack</a> •
+    <a href="#roadmap">Roadmap</a> •
+    <a href="#contributing">Contributing</a>
+  </p>
+    
+  ![Version](https://img.shields.io/badge/version-1.0.0-blue)
+  ![Platform](https://img.shields.io/badge/platform-Web%20%7C%20Android-brightgreen)
+  ![License](https://img.shields.io/badge/license-MIT-green)
+</div>
 
-![Culinary Quest Banner](assets/banner.png)
+## 🌟 Overview
 
-## 🌟 Discover Your Next Favorite Recipe!
+**Culinary Quest** is a beautifully designed recipe discovery platform that helps food enthusiasts find, save, and cook amazing recipes. Whether you're a seasoned chef or just starting your culinary journey, our intuitive interface and powerful features make cooking a delightful experience.
 
-Culinary Quest is your ultimate recipe discovery platform, designed to inspire your cooking journey! Whether you're a seasoned chef or a beginner, Culinary Quest helps you find, save, and cook amazing recipes tailored to your preferences.
-
----
 
 ## ✨ Features
 
-### 🔍 Smart Recipe Search
-- **Filter recipes** by cuisine, diet type, meal type, and prep time.
-- **Trending tags** to discover popular recipes.
-- **Beautiful visual cards** for easy browsing.
+<details open>
+<summary><b>🔍 Smart Recipe Search</b></summary>
+<br>
+• Intelligent filtering by cuisine, diet type, meal type, and prep time<br>
+• Trending recipe suggestions<br>
+• Visual results with beautiful cards and high-quality images
+</details>
 
-### 👨‍🍳 Detailed Recipe Information
-- **Ingredient lists** with measurements and substitutions.
-- **Step-by-step instructions** for clear guidance.
-- **Nutritional information** for health-conscious cooking.
-- **Cooking time** and **serving size** details.
+<details>
+<summary><b>👨‍🍳 Detailed Recipe Information</b></summary>
+<br>
+• Complete ingredient lists with measurements<br>
+• Clear step-by-step cooking instructions<br>
+• Nutritional information for health-conscious cooking<br>
+• Cooking time and serving size details
+</details>
 
-### 🕒 Cooking Mode
-- **Hands-free cooking assistant** with step-by-step guidance.
-- **Built-in timers** for precise cooking.
-- **Checklist for ingredients** to stay organized.
+<details>
+<summary><b>🕒 Cooking Mode</b></summary>
+<br>
+• Hands-free cooking assistant with step-by-step guidance<br>
+• Built-in timers for precise cooking<br>
+• Interactive checklist for ingredients
+</details>
 
-### ❤️ Personalization
-- **Save favorite recipes** for quick access.
-- **Dark/Light theme** for comfortable viewing.
-- **Recently viewed** recipe history.
+<details>
+<summary><b>❤️ Personalization</b></summary>
+<br>
+• Save favorite recipes for quick access<br>
+• Dark/Light theme for comfortable viewing<br>
+• Recently viewed recipe history
+</details>
 
-### 📅 Meal Planning
-- **Weekly meal planner** to organize your cooking schedule.
-- **Generate meal plans** based on preferences.
-- **Balanced nutrition** suggestions.
+<details>
+<summary><b>📱 Cross-Platform</b></summary>
+<br>
+• Responsive web application for any device<br>
+• Dedicated Android app with offline capabilities
+</details>
 
-### 📱 Cross-Platform
-- **Responsive web application** for desktop and mobile browsers.
-- **Native Android app** built with Kotlin for an optimal mobile experience.
+## 🛠️ Tech Stack
 
----
+<table>
+  <tr>
+    <th>Web Application</th>
+    <th>Android Application</th>
+  </tr>
+  <tr>
+    <td>
+      • HTML5, CSS3, JavaScript<br>
+      • TheMealDB API<br>
+      • Responsive CSS Framework<br>
+      • Font Awesome Icons
+    </td>
+    <td>
+      • Kotlin<br>
+      • MVVM Architecture<br>
+      • Material Design<br>
+      • Retrofit & Room DB
+    </td>
+  </tr>
+</table>
 
-## 🛠️ Technology Stack
+## 📱 Installation
 
 ### Web Application
-- **Frontend**: HTML5, CSS3, JavaScript.
-- **API**: TheMealDB API.
-- **Styling**: Custom CSS with responsive design.
-- **Icons**: Font Awesome.
 
-### Android Application
-- **Language**: Kotlin.
-- **Architecture**: MVVM.
-- **UI**: Material Design components.
-- **Networking**: Retrofit & OkHttp.
-- **Image Loading**: Coil.
-- **Local Storage**: Room Database.
+Visit our [live website](https://culinary-quest.com) or host it locally:
 
----
-
-## 📱 Download & Installation
-
-### Web Application
-Visit our [live website](https://culinary-quest.com) to start exploring recipes instantly!
+```bash
+git clone https://github.com/yourusername/culinary-quest.git
+cd culinary-quest
+# Open index.html or use a local server
+python -m http.server 8000
+```
 
 ### Android App
-Currently, the Culinary Quest app is available as a direct APK download:
 
-1. **Download the APK**: [Download Culinary Quest APK](assets/CutliaryQ.apk).
-2. **Enable installation from unknown sources** in your Android settings.
-3. **Install the APK** by opening the downloaded file.
-4. **Enjoy cooking** with our beautiful Kotlin-based application!
+<div align="center">
+  <a href="assets/CulinaryQ.apk"><img src="assets/download-button.png" width="200"></a>
+</div>
 
----
-
-## 🚀 Getting Started
-
-### Web Application
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/culinary-quest.git
-   cd culinary-quest
-   ```
-
-2. Open `index.html` in your browser or use a local server:
-   ```bash
-   # If you have Python installed
-   python -m http.server 8000
-   ```
-
-3. Visit `http://localhost:8000` in your browser.
-
----
-
-## 💫 Key Features in Action
-
-- 🔄 **Real-time recipe filtering** - Instantly find recipes that match your criteria.
-- 🔖 **Save favorites** - Keep track of recipes you love.
-- 🌓 **Dark mode** - Easy on the eyes during evening cooking sessions.
-- 🍲 **Meal planning** - Plan your meals for the entire week.
-
----
+1. Download the APK from the button above
+2. Enable "Install from Unknown Sources" in your device settings
+3. Install and enjoy!
 
 ## 🚧 Roadmap
 
-- 📊 Recipe ratings and reviews.
-- 📝 Custom recipe creation.
-- 🛒 Grocery list generation.
-- 👨‍👩‍👧‍👦 Family meal planning.
-- 📱 iOS app development.
-
----
+- [ ] **Q2 2023:** Recipe ratings and reviews system
+- [ ] **Q3 2023:** Custom recipe creation tools
+- [ ] **Q3 2023:** Grocery list generation from recipes
+- [ ] **Q4 2023:** Family meal planning calendar
+- [ ] **Q1 2024:** iOS app development
 
 ## 🤝 Contributing
 
-Contributions are welcome! Feel free to open issues or submit pull requests.
+We welcome contributions to make Culinary Quest even better!
 
-1. Fork the repository.
-2. Create your feature branch: `git checkout -b feature/amazing-feature`.
-3. Commit your changes: `git commit -m 'Add some amazing feature'`.
-4. Push to the branch: `git push origin feature/amazing-feature`.
-5. Open a Pull Request.
-
----
+```bash
+# Fork the repository
+git checkout -b feature/amazing-feature
+git commit -m 'Add some amazing feature'
+git push origin feature/amazing-feature
+# Open a Pull Request
+```
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
----
-
 ## 🙏 Acknowledgements
 
-- [TheMealDB API](https://www.themealdb.com/api.php) for the comprehensive recipe database.
-- [Font Awesome](https://fontawesome.com/) for the beautiful icons.
-- [Unsplash](https://unsplash.com/) for food photography.
+- [TheMealDB](https://www.themealdb.com/api.php) for their comprehensive recipe API
+- [Font Awesome](https://fontawesome.com/) for beautiful icons
+- [Unsplash](https://unsplash.com/) for high-quality food photography
 
 ---
 
-Made with ❤️ by [Akshit Mahajan](https://github.com/Akshit2004)
+<div align="center">
+  <p>Made with ❤️ by <a href="https://github.com/Akshit2004">Akshit Mahajan</a></p>
+  <p>
+    <a href="https://twitter.com/yourtwitter"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" height="25"></a>
+    <a href="https://linkedin.com/in/yourlinkedin"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" height="25"></a>
+  </p>
+</div>
