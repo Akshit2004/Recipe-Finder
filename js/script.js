@@ -33,6 +33,9 @@ function initializeApp() {
         themeSwitch.checked = true;
     }
     
+    // Handle hero video for mobile devices
+    handleHeroVideo();
+    
     // Load featured recipes
     loadFeaturedRecipes();
     
@@ -50,6 +53,34 @@ function initializeApp() {
     
     // Set up all event listeners
     setupEventListeners();
+}
+
+// Handle hero video loading
+function handleHeroVideo() {
+    const heroVideo = document.getElementById('hero-video');
+    const heroSection = document.querySelector('.hero');
+    
+    // Check if it's a mobile device based on screen width or user agent
+    const isMobile = window.innerWidth < 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    // If mobile, add a fallback class and stop video loading
+    if (isMobile) {
+        heroSection.classList.add('mobile-hero');
+        
+        // Try to play the video but handle failure gracefully
+        if (heroVideo) {
+            heroVideo.addEventListener('error', () => {
+                heroSection.classList.add('video-fallback');
+            });
+            
+            // Some mobile browsers block autoplay, so check if video is playing after a delay
+            setTimeout(() => {
+                if (heroVideo.paused || heroVideo.currentTime === 0) {
+                    heroSection.classList.add('video-fallback');
+                }
+            }, 1000);
+        }
+    }
 }
 
 // Event Listeners

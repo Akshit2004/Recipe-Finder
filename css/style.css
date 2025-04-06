@@ -339,6 +339,23 @@ input:checked + .slider:before {
     z-index: -2;
 }
 
+/* Add styles for mobile hero and fallback */
+.mobile-hero .hero-video {
+    display: none; /* Don't try to load video on mobile by default */
+}
+
+.mobile-hero {
+    background-image: url('../assets/hero-poster.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.video-fallback {
+    background-image: url('../assets/hero-poster.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -564,6 +581,17 @@ input:checked + .slider:before {
     
     .search-container:hover {
         transform: translateY(-2px);
+    }
+    
+    /* Add additional hero styles for mobile */
+    .hero {
+        background-image: url('../assets/hero-poster.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .hero-video {
+        display: none; /* Hide video element on mobile */
     }
 }
 
