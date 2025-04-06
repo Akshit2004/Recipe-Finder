@@ -1,31 +1,24 @@
 :root {
-    /* Updated color scheme - White and Red */
-    --primary-color: #E63946; /* Bold red */
+    --primary-color: #E63946;
     --primary-hover: #C1121F;
-    --secondary-color: #ff6b6b; /* Complementary lighter red */
-    --text-color: #333333; /* Dark text */
+    --secondary-color: #ff6b6b;
+    --text-color: #333333;
     --text-light: #666666;
     --text-lighter: #888888;
-    --bg-color: #FFFFFF; /* Pure white */
-    --bg-light: #f8f9fa; /* Very light gray */
-    --bg-dark: #f0f0f0; /* Light gray */
+    --bg-color: #FFFFFF;
+    --bg-light: #f8f9fa;
+    --bg-dark: #f0f0f0;
     --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     --border-color: #eeeeee;
-    --success-color: #2A9D8F; /* Teal */
-    --danger-color: #E76F51; /* Coral */
-    --warning-color: #F4A261; /* Sandy orange */
-    --info-color: #A8DADC; /* Light blue */
-    
-    /* Animation speeds */
+    --success-color: #2A9D8F;
+    --danger-color: #E76F51;
+    --warning-color: #F4A261;
+    --info-color: #A8DADC;
     --transition-slow: 0.5s;
     --transition-medium: 0.3s;
     --transition-fast: 0.15s;
-    
-    /* Font stack */
     --body-font: 'Poppins', sans-serif;
     --heading-font: 'Montserrat', sans-serif;
-
-    /* Safe Area Support for Notch Devices */
     --safe-area-top: env(safe-area-inset-top, 0px);
     --safe-area-bottom: env(safe-area-inset-bottom, 0px);
     --safe-area-left: env(safe-area-inset-left, 0px);
@@ -33,17 +26,17 @@
 }
 
 [data-theme="dark"] {
-    --primary-color: #dd3142; /* Brighter red for dark mode */
+    --primary-color: #dd3142;
     --primary-hover: #ff6b7a;
-    --secondary-color: #ff8c8c; /* Lighter red */
-    --text-color: #ffffff; /* White text */
-    --text-light: #cccccc; /* Light gray text */
-    --text-lighter: #aaaaaa; /* Gray text */
-    --bg-color: #000000; /* Black background */
-    --bg-light: #1a1a1a; /* Very dark gray */
-    --bg-dark: #121212; /* Almost black */
+    --secondary-color: #ff8c8c;
+    --text-color: #ffffff;
+    --text-light: #cccccc;
+    --text-lighter: #aaaaaa;
+    --bg-color: #000000;
+    --bg-light: #1a1a1a;
+    --bg-dark: #121212;
     --card-shadow: 0 4px 20px rgba(255, 77, 94, 0.2);
-    --border-color: #333333; /* Dark border */
+    --border-color: #333333;
 }
 
 * {
@@ -61,7 +54,7 @@ body {
     transition: background-color var(--transition-medium), color var(--transition-medium);
     overflow-x: hidden;
     scroll-behavior: smooth;
-    padding-top: var(--safe-area-top); /* Add padding for the top safe area */
+    padding-top: var(--safe-area-top);
 }
 
 a {
@@ -84,7 +77,6 @@ button {
     display: none !important;
 }
 
-/* Typography */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--heading-font);
     line-height: 1.3;
@@ -122,7 +114,6 @@ h2 {
     margin-right: 0.5rem;
 }
 
-/* Buttons */
 .primary-btn {
     background-color: var(--primary-color);
     color: white;
@@ -156,7 +147,6 @@ h2 {
     transform: translateY(-2px);
 }
 
-/* Header & Navigation */
 header {
     background-color: var(--bg-color);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
@@ -164,7 +154,7 @@ header {
     top: 0;
     z-index: 100;
     transition: background-color var(--transition-medium), box-shadow var(--transition-medium);
-    padding-top: var(--safe-area-top); /* Ensure header respects the safe area */
+    padding-top: var(--safe-area-top);
 }
 
 nav {
@@ -241,7 +231,6 @@ nav {
     color: var(--primary-color);
 }
 
-/* Theme Toggle */
 .theme-toggle {
     display: flex;
     align-items: center;
@@ -330,7 +319,6 @@ input:checked + .slider:before {
     transition: all var(--transition-medium);
 }
 
-/* Hero Section */
 .hero {
     position: relative;
     padding: 8rem 2rem;
@@ -360,9 +348,8 @@ input:checked + .slider:before {
     z-index: -2;
 }
 
-/* Add styles for mobile hero and fallback */
 .mobile-hero .hero-video {
-    display: none; /* Don't try to load video on mobile by default */
+    display: none;
 }
 
 .mobile-hero {
@@ -433,7 +420,6 @@ input:checked + .slider:before {
     border-radius: 10px;
 }
 
-/* Enhanced Search Box - Modern Clean Design */
 .search-container {
     position: relative;
     display: flex;
@@ -449,16 +435,92 @@ input:checked + .slider:before {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.search-container:hover,
-.search-container:focus-within {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+[data-theme="dark"] .search-container {
+    background: rgba(40, 40, 40, 0.9);
 }
 
 .search-wrapper {
     position: relative;
     flex: 1;
-    overflow: hidden;
+    overflow: visible;
+}
+
+.autocomplete-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 250px;
+    overflow-y: auto;
+    background: white;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    display: none;
+}
+
+.autocomplete-item {
+    padding: 0.8rem 1rem 0.8rem 55px;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: all 0.2s ease;
+    position: relative;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.autocomplete-item:last-child {
+    border-bottom: none;
+}
+
+.autocomplete-item:hover, 
+.autocomplete-item.selected {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.autocomplete-item .suggestion-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-color);
+    font-size: 1rem;
+    opacity: 0.7;
+}
+
+.autocomplete-item .suggestion-type {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    display: block;
+}
+
+.no-suggestions {
+    padding: 0.8rem 1rem;
+    color: var(--text-light);
+    text-align: center;
+    font-style: italic;
+}
+
+[data-theme="dark"] .autocomplete-container {
+    background: var(--bg-light);
+}
+
+[data-theme="dark"] .autocomplete-item:hover, 
+[data-theme="dark"] .autocomplete-item.selected {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+    .autocomplete-container {
+        border-radius: 0;
+    }
+    
+    .autocomplete-item {
+        padding: 0.8rem 1rem 0.8rem 45px;
+    }
+    
+    .autocomplete-item .suggestion-icon {
+        left: 15px;
+    }
 }
 
 .search-icon {
@@ -482,15 +544,23 @@ input:checked + .slider:before {
     padding: 1.2rem 1.2rem 1.2rem 55px;
     border: none;
     font-size: 1.1rem;
-    color: var(--text-color);
+    color: #333333;
     font-weight: 500;
     background-color: transparent;
     outline: none;
 }
 
+[data-theme="dark"] #search-input {
+    color: #ffffff;
+}
+
 #search-input::placeholder {
-    color: var(--text-light);
+    color: #666666;
     opacity: 0.7;
+}
+
+[data-theme="dark"] #search-input::placeholder {
+    color: #bbbbbb;
 }
 
 #search-btn {
@@ -514,7 +584,6 @@ input:checked + .slider:before {
     z-index: 2;
 }
 
-/* Updated Quick Search Tags */
 .quick-searches {
     margin-top: 1.5rem;
     text-align: center;
@@ -568,7 +637,6 @@ input:checked + .slider:before {
     transform: scale(1.2);
 }
 
-/* Media query adjustments */
 @media (max-width: 576px) {
     .quick-search-tag {
         padding: 0.5rem 1rem;
@@ -580,7 +648,6 @@ input:checked + .slider:before {
     }
 }
 
-/* Media queries for responsive design */
 @media (max-width: 768px) {
     .search-container {
         flex-direction: column;
@@ -588,7 +655,7 @@ input:checked + .slider:before {
         margin: 0 auto 1.5rem;
         border-radius: 12px;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        transform: none !important; /* Remove transforms that cause issues on mobile */
+        transform: none !important;
     }
     
     .search-wrapper {
@@ -620,7 +687,6 @@ input:checked + .slider:before {
         border-bottom-right-radius: 12px;
     }
     
-    /* Quick search tags adjustments */
     .quick-searches {
         margin-top: 1.8rem;
     }
@@ -674,7 +740,6 @@ input:checked + .slider:before {
     }
 }
 
-/* Featured Recipes Carousel */
 .featured-recipes {
     padding: 5rem 0;
     background-color: var(--bg-light);
@@ -688,7 +753,6 @@ input:checked + .slider:before {
     overflow: hidden;
 }
 
-/* Add edge fading effect */
 .carousel-track-container {
     overflow: hidden;
     padding: 1.5rem 0;
@@ -739,7 +803,6 @@ input:checked + .slider:before {
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-/* Enhanced carousel buttons */
 .carousel-btn {
     position: absolute;
     top: 50%;
@@ -775,7 +838,6 @@ input:checked + .slider:before {
     right: 1rem;
 }
 
-/* Add an active indicator for the current slide */
 .carousel-indicators {
     display: flex;
     justify-content: center;
@@ -797,7 +859,6 @@ input:checked + .slider:before {
     transform: scale(1.2);
 }
 
-/* Categories Section */
 .categories-section {
     padding: 5rem 0;
 }
@@ -868,7 +929,6 @@ input:checked + .slider:before {
     font-weight: 600;
 }
 
-/* Recipe Cards / Results */
 .recipes {
     padding: 5rem 0;
 }
@@ -967,7 +1027,6 @@ input:checked + .slider:before {
     gap: 1.5rem;
 }
 
-/* Recipe Cards - Updated to Black Smoked Glass Style */
 .recipe-card {
     background-color: rgba(20, 20, 20, 0.8);
     backdrop-filter: blur(10px);
@@ -1004,7 +1063,6 @@ input:checked + .slider:before {
     border-top: 1px solid var(--primary-color);
 }
 
-/* Fix button positioning within cards */
 .bookmark-btn {
     position: absolute;
     top: 1rem;
@@ -1037,7 +1095,6 @@ input:checked + .slider:before {
     background-color: rgba(255, 255, 255, 0.3);
 }
 
-/* Updated recipe info styling for dark cards */
 .recipe-info {
     padding: 1.5rem;
     display: flex;
@@ -1126,14 +1183,12 @@ input:checked + .slider:before {
     color: white;
 }
 
-/* Updated carousel items to match the black smoked glass style */
 .carousel-item .recipe-card {
     height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-/* Fix image container for proper aspect ratio */
 .recipe-image {
     height: 200px;
     overflow: hidden;
@@ -1161,7 +1216,6 @@ input:checked + .slider:before {
     transform: scale(1.05);
 }
 
-/* Recipe Modal */
 .recipe-modal {
     display: block;
     position: fixed;
@@ -1401,7 +1455,6 @@ detail-value i {
     margin-right: 0.8rem;
 }
 
-/* Footer */
 footer {
     background-color: var(--bg-dark);
     color: var(--text-color);
@@ -1507,7 +1560,6 @@ footer {
     transform: translateY(-3px);
 }
 
-/* Toast Notifications */
 .toast-container {
     position: fixed;
     bottom: 2rem;
@@ -1537,7 +1589,6 @@ footer {
     opacity: 1;
 }
 
-/* Badges */
 .badge {
     background-color: var(--primary-color);
     color: white;
@@ -1558,14 +1609,12 @@ footer {
     position: relative;
 }
 
-/* Animations */
 .removing {
     transform: translateX(100px);
     opacity: 0;
     transition: all 0.3s;
 }
 
-/* Source Link */
 .source-link {
     margin-top: 1.5rem;
     text-align: center;
@@ -1577,7 +1626,6 @@ footer {
     font-weight: 500;
 }
 
-/* Error Messages */
 .error-message {
     text-align: center;
     padding: 2rem;
@@ -1605,7 +1653,6 @@ footer {
     font-size: 0.9rem;
 }
 
-/* App Download Section */
 .app-download-section {
     padding: 5rem 0;
     background-color: var(--bg-light);
@@ -1710,7 +1757,6 @@ footer {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* Feedback Section */
 .feedback-section {
     padding: 5rem 0;
     background-color: var(--bg-color);
@@ -1855,30 +1901,28 @@ footer {
     resize: vertical;
 }
 
-/* Feedback Section - Mobile Alignment Fix */
 @media (max-width: 576px) {
     .feedback-container {
         flex-direction: column;
-        align-items: center; /* Center align the content */
-        text-align: center; /* Center align text */
+        align-items: center;
+        text-align: center;
         padding: 1.5rem 1rem;
     }
 
     .feedback-info {
-        text-align: center; /* Center align the feedback info */
+        text-align: center;
     }
 
     .satisfaction-rating {
-        text-align: center; /* Center align the rating section */
+        text-align: center;
     }
 
     .feedback-form {
-        width: 100%; /* Ensure the form takes full width */
-        max-width: 400px; /* Limit the form width */
+        width: 100%;
+        max-width: 400px;
     }
 }
 
-/* Responsive design for App Download and Feedback sections */
 @media (max-width: 991px) {
     .app-download-content {
         flex-direction: column;
@@ -1950,7 +1994,6 @@ footer {
     }
 }
 
-/* Responsive Design */
 @media (max-width: 1024px) {
     .hero h2 {
         font-size: 3rem;
@@ -2068,7 +2111,6 @@ footer {
     }
 }
 
-/* For very small screens */
 @media (max-width: 350px) {
     .hero h2 {
         font-size: 1.7rem;
@@ -2087,15 +2129,12 @@ footer {
     }
 }
 
-/* Responsive Design - Better Media Queries */
-/* Large Desktop (1200px and above) - maintain current desktop design */
 @media (min-width: 1201px) {
     .grid-view {
         grid-template-columns: repeat(4, 1fr);
     }
 }
 
-/* Desktop and Small Desktop (992px - 1200px) */
 @media (max-width: 1200px) {
     .hero h2 {
         font-size: 2.8rem;
@@ -2110,7 +2149,6 @@ footer {
     }
 }
 
-/* Tablets and Small Desktop (768px - 991px) */
 @media (max-width: 991px) {
     .hero h2 {
         font-size: 2.6rem;
@@ -2130,15 +2168,12 @@ footer {
         gap: 1.5rem;
     }
     
-    /* Recipe cards adjustments */
     .recipe-title {
         font-size: 1.1rem;
     }
 }
 
-/* Mobile Landscape & Small Tablets (576px - 767px) */
 @media (max-width: 767px) {
-    /* Navigation fixes */
     nav {
         padding: 1rem 1rem;
     }
@@ -2187,7 +2222,6 @@ footer {
         margin-left: auto;
     }
     
-    /* Hero section */
     .hero {
         padding: 6rem 1rem 4rem;
     }
@@ -2201,11 +2235,10 @@ footer {
         margin-bottom: 2rem;
     }
     
-    /* Search container */
     .search-container {
         flex-direction: column;
         border-radius: 16px;
-        transform: none !important; /* Remove transform for better mobile performance */
+        transform: none !important;
         box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
         margin-bottom: 1.5rem;
     }
@@ -2229,7 +2262,7 @@ footer {
         padding: 0.8rem 1rem;
         border-radius: 0 0 16px 16px;
         font-size: 1rem;
-        transform: none !important; /* Remove transform that causes issues */
+        transform: none !important;
     }
     
     .quick-searches {
@@ -2245,7 +2278,6 @@ footer {
         margin-bottom: 0.5rem;
     }
     
-    /* Content sections */
     .featured-recipes,
     .categories-section,
     .recipes,
@@ -2262,12 +2294,10 @@ footer {
         font-size: 1.8rem;
     }
     
-    /* Carousel */
     .carousel-item {
         flex: 0 0 calc(100% - 2rem);
     }
     
-    /* Cards */
     .categories-container {
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
@@ -2290,7 +2320,6 @@ footer {
         height: 180px;
     }
     
-    /* Forms */
     #newsletter-form {
         flex-direction: column;
         padding: 0 1rem;
@@ -2305,16 +2334,13 @@ footer {
         border-radius: 8px;
     }
     
-    /* Footer */
     .footer-content {
         grid-template-columns: repeat(2, 1fr);
         padding: 0 1rem 2rem;
     }
 }
 
-/* Mobile Portrait (320px - 575px) */
 @media (max-width: 575px) {
-    /* Header & Logo */
     nav {
         padding: 0.8rem;
     }
@@ -2328,7 +2354,6 @@ footer {
         margin-right: 0.5rem;
     }
     
-    /* Hero section */
     .hero {
         padding: 5rem 1rem 3rem;
     }
@@ -2342,7 +2367,6 @@ footer {
         margin-bottom: 1.8rem;
     }
     
-    /* Cards and containers */
     .grid-view {
         grid-template-columns: 1fr;
     }
@@ -2360,7 +2384,6 @@ footer {
         font-size: 1rem;
     }
     
-    /* Recipe details */
     .recipe-details {
         flex-direction: column;
         align-items: flex-start;
@@ -2381,7 +2404,6 @@ footer {
         font-size: 0.75rem;
     }
     
-    /* Recipe modal */
     .recipe-modal-content {
         padding: 1.2rem;
         width: 95%;
@@ -2401,7 +2423,6 @@ footer {
         grid-template-columns: 1fr;
     }
     
-    /* Cards */
     .recipe-info {
         padding: 1.2rem;
     }
@@ -2410,7 +2431,6 @@ footer {
         height: 180px;
     }
     
-    /* Footer */
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
@@ -2424,7 +2444,6 @@ footer {
         padding: 1rem;
     }
     
-    /* Toast notifications */
     .toast-container {
         left: 1rem;
         right: 1rem;
@@ -2438,7 +2457,6 @@ footer {
     }
 }
 
-/* Very small devices (320px and below) */
 @media (max-width: 320px) {
     .hero h2 {
         font-size: 1.5rem;
@@ -2449,7 +2467,6 @@ footer {
         margin-bottom: 1.5rem;
     }
     
-    /* Increase touch targets */
     .bookmark-btn {
         width: 32px;
         height: 32px;
@@ -2470,7 +2487,6 @@ footer {
         font-size: 0.8rem;
     }
     
-    /* Fix small layout issues */
     .search-icon {
         left: 10px;
         font-size: 0.9rem;
@@ -2482,7 +2498,6 @@ footer {
     }
 }
 
-/* Handle device orientation - Landscape phones */
 @media (max-height: 480px) and (orientation: landscape) {
     .hero {
         padding: 4rem 1rem 2rem;
@@ -2507,20 +2522,17 @@ footer {
     }
 }
 
-/* High density screens (Retina displays) */
 @media (-webkit-min-device-pixel-ratio: 2), 
        (min-resolution: 192dpi) {
     .bookmark-btn,
     .search-btn,
     .view-btn,
     .carousel-btn {
-        /* Improve touch targets on high density screens */
         min-height: 44px;
         min-width: 44px;
     }
 }
 
-/* iOS-specific fixes for notch devices */
 @supports (padding-top: env(safe-area-inset-top)) {
     body {
         padding-top: env(safe-area-inset-top);

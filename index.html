@@ -53,6 +53,7 @@
                         <i class="fas fa-search"></i>
                     </div>
                     <input type="text" id="search-input" placeholder="Search recipes (e.g., 'chicken', 'pasta', 'cake')..." aria-label="Search recipes">
+                    <div id="autocomplete-container" class="autocomplete-container"></div>
                 </div>
                 <button type="submit" id="search-btn">
                     <span>Search</span>
@@ -91,17 +92,11 @@
             <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
             <div class="carousel-track-container">
                 <ul class="carousel-track" id="featured-recipes-carousel">
-                    <!-- Carousel items will be added dynamically -->
-                    <div class="carousel-placeholder">
-                        <div class="loading-spinner"></div>
-                    </div>
                 </ul>
             </div>
             <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
             
-            <!-- Add carousel indicators -->
             <div class="carousel-indicators" id="carousel-indicators">
-                <!-- Indicators will be added dynamically -->
             </div>
         </div>
     </section>
@@ -112,8 +107,6 @@
             <p>Explore recipes by cuisine and meal type</p>
         </div>
         <div class="categories-container" id="categories-container">
-            <!-- Categories will be added dynamically -->
-            <div class="loading-spinner"></div>
         </div>
     </section>
 
@@ -131,7 +124,6 @@
         </div>
         <div id="recipe-container" class="grid-view"></div>
         <div class="pagination-container" id="pagination">
-            <!-- Pagination will be added dynamically when needed -->
         </div>
     </section>
     
@@ -141,7 +133,6 @@
             <p>Your collection of favorite recipes</p>
         </div>
         <div id="saved-recipes-container" class="grid-view">
-            <!-- Saved recipes will be displayed here -->
             <p class="no-saved-message">You haven't saved any recipes yet. Click the bookmark icon on any recipe to save it for later.</p>
         </div>
     </section>
@@ -218,7 +209,6 @@
                         <label for="feedback-message">Your Feedback</label>
                         <textarea id="feedback-message" name="message" placeholder="Please share your thoughts here..." required></textarea>
                     </div>
-                    <!-- Hidden field to store rating value -->
                     <input type="hidden" name="satisfaction-rating" id="satisfaction-rating" value="">
                     <button type="submit" class="primary-btn">Send Feedback</button>
                 </form>
@@ -231,12 +221,6 @@
             <div class="footer-col">
                 <h3>culinary<span>Quest</span></h3>
                 <p>Discover, cook, and share amazing recipes from around the world.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-pinterest"></i></a>
-                </div>
             </div>
             <div class="footer-col">
                 <h4>Quick Links</h4>
@@ -250,7 +234,6 @@
             <div class="footer-col">
                 <h4>Popular Categories</h4>
                 <ul id="footer-categories">
-                    <!-- Will be populated dynamically -->
                 </ul>
             </div>
             <div class="footer-col">
