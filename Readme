@@ -2,60 +2,63 @@
 
 ![Culinary Quest Banner](assets/banner.png)
 
-## 🌟 Find the Perfect Recipe for Any Occasion!
+## 🌟 Discover Your Next Favorite Recipe!
 
-Culinary Quest is a delightful recipe discovery platform designed to inspire your cooking journey! Whether you're a seasoned chef or just starting out, our application helps you find, save, and cook amazing recipes tailored to your preferences and dietary requirements.
+Culinary Quest is your ultimate recipe discovery platform, designed to inspire your cooking journey! Whether you're a seasoned chef or a beginner, Culinary Quest helps you find, save, and cook amazing recipes tailored to your preferences.
 
-![Website Status](https://img.shields.io/badge/Website-Live-brightgreen)
-![App Status](https://img.shields.io/badge/Android%20App-Available-blue)
+---
 
 ## ✨ Features
 
 ### 🔍 Smart Recipe Search
-- **Intelligent filtering** by cuisine, diet type, meal type, and prep time
-- **Trending tags** to discover popular recipes
-- **Comprehensive results** with beautiful visual cards
+- **Filter recipes** by cuisine, diet type, meal type, and prep time.
+- **Trending tags** to discover popular recipes.
+- **Beautiful visual cards** for easy browsing.
 
 ### 👨‍🍳 Detailed Recipe Information
-- **Ingredient lists** with measurements and substitutions
-- **Step-by-step instructions** with clear guidance
-- **Nutritional information** for health-conscious cooking
-- **Cooking time** and **serving size** details
+- **Ingredient lists** with measurements and substitutions.
+- **Step-by-step instructions** for clear guidance.
+- **Nutritional information** for health-conscious cooking.
+- **Cooking time** and **serving size** details.
 
 ### 🕒 Cooking Mode
-- **Hands-free cooking assistant** with step-by-step guidance
-- **Built-in timers** for precise cooking
-- **Checklist for ingredients** to stay organized
+- **Hands-free cooking assistant** with step-by-step guidance.
+- **Built-in timers** for precise cooking.
+- **Checklist for ingredients** to stay organized.
 
 ### ❤️ Personalization
-- **Save favorite recipes** for quick access
-- **Dark/Light theme** for comfortable viewing
-- **Recently viewed** recipe history
+- **Save favorite recipes** for quick access.
+- **Dark/Light theme** for comfortable viewing.
+- **Recently viewed** recipe history.
 
 ### 📅 Meal Planning
-- **Weekly meal planner** to organize your cooking schedule
-- **Generate meal plans** based on preferences
-- **Balanced nutrition** suggestions
+- **Weekly meal planner** to organize your cooking schedule.
+- **Generate meal plans** based on preferences.
+- **Balanced nutrition** suggestions.
 
 ### 📱 Cross-Platform
-- **Responsive web application** for desktop and mobile browsers
-- **Native Android app** built with Kotlin for optimal mobile experience
+- **Responsive web application** for desktop and mobile browsers.
+- **Native Android app** built with Kotlin for an optimal mobile experience.
+
+---
 
 ## 🛠️ Technology Stack
 
 ### Web Application
-- **Frontend**: HTML5, CSS3, JavaScript
-- **API**: Spoonacular Recipe API
-- **Styling**: Custom CSS with responsive design
-- **Icons**: Font Awesome
+- **Frontend**: HTML5, CSS3, JavaScript.
+- **API**: TheMealDB API.
+- **Styling**: Custom CSS with responsive design.
+- **Icons**: Font Awesome.
 
 ### Android Application
-- **Language**: 100% Kotlin
-- **Architecture**: MVVM
-- **UI**: Material Design components
-- **Networking**: Retrofit & OkHttp
-- **Image Loading**: Coil
-- **Local Storage**: Room Database
+- **Language**: Kotlin.
+- **Architecture**: MVVM.
+- **UI**: Material Design components.
+- **Networking**: Retrofit & OkHttp.
+- **Image Loading**: Coil.
+- **Local Storage**: Room Database.
+
+---
 
 ## 📱 Download & Installation
 
@@ -65,67 +68,75 @@ Visit our [live website](https://culinary-quest.com) to start exploring recipes 
 ### Android App
 Currently, the Culinary Quest app is available as a direct APK download:
 
-1. **Download the APK**: [Download Culinary Quest APK](assets/CutliaryQ.apk)
-2. **Enable installation from unknown sources** in your Android settings
-3. **Install the APK** by opening the downloaded file
+1. **Download the APK**: [Download Culinary Quest APK](assets/CutliaryQ.apk).
+2. **Enable installation from unknown sources** in your Android settings.
+3. **Install the APK** by opening the downloaded file.
 4. **Enjoy cooking** with our beautiful Kotlin-based application!
+
+---
 
 ## 🚀 Getting Started
 
 ### Web Application
 
 1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/culinary-quest.git
-cd culinary-quest
-```
+   ```bash
+   git clone https://github.com/yourusername/culinary-quest.git
+   cd culinary-quest
+   ```
 
 2. Open `index.html` in your browser or use a local server:
-```bash
-# If you have Python installed
-python -m http.server 8000
-```
+   ```bash
+   # If you have Python installed
+   python -m http.server 8000
+   ```
 
-3. Visit `http://localhost:8000` in your browser
+3. Visit `http://localhost:8000` in your browser.
 
-### Building the Android App
-
+---
 
 ## 💫 Key Features in Action
 
-- 🔄 **Real-time recipe filtering** - Instantly find recipes that match your criteria
-- 🔖 **Save favorites** - Keep track of recipes you love
-- 🔔 **Cook mode** - Step by step guidance while cooking
-- 🌓 **Dark mode** - Easy on the eyes during evening cooking sessions
-- 🍲 **Meal planning** - Plan your meals for the entire week
+- 🔄 **Real-time recipe filtering** - Instantly find recipes that match your criteria.
+- 🔖 **Save favorites** - Keep track of recipes you love.
+- 🌓 **Dark mode** - Easy on the eyes during evening cooking sessions.
+- 🍲 **Meal planning** - Plan your meals for the entire week.
+
+---
 
 ## 🚧 Roadmap
 
-- 📊 Recipe ratings and reviews
-- 📝 Custom recipe creation
-- 🛒 Grocery list generation
-- 👨‍👩‍👧‍👦 Family meal planning
-- 📱 iOS app development
+- 📊 Recipe ratings and reviews.
+- 📝 Custom recipe creation.
+- 🛒 Grocery list generation.
+- 👨‍👩‍👧‍👦 Family meal planning.
+- 📱 iOS app development.
+
+---
 
 ## 🤝 Contributing
 
 Contributions are welcome! Feel free to open issues or submit pull requests.
 
-1. Fork the repository
-2. Create your feature branch: `git checkout -b feature/amazing-feature`
-3. Commit your changes: `git commit -m 'Add some amazing feature'`
-4. Push to the branch: `git push origin feature/amazing-feature`
-5. Open a Pull Request
+1. Fork the repository.
+2. Create your feature branch: `git checkout -b feature/amazing-feature`.
+3. Commit your changes: `git commit -m 'Add some amazing feature'`.
+4. Push to the branch: `git push origin feature/amazing-feature`.
+5. Open a Pull Request.
+
+---
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
+---
+
 ## 🙏 Acknowledgements
 
-- [Spoonacular API](https://spoonacular.com/food-api) for the comprehensive recipe database
-- [Font Awesome](https://fontawesome.com/) for the beautiful icons
-- [Unsplash](https://unsplash.com/) for food photography
+- [TheMealDB API](https://www.themealdb.com/api.php) for the comprehensive recipe database.
+- [Font Awesome](https://fontawesome.com/) for the beautiful icons.
+- [Unsplash](https://unsplash.com/) for food photography.
 
 ---
 

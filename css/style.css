@@ -433,21 +433,116 @@ input:checked + .slider:before {
     border-radius: 10px;
 }
 
-/* Search Container */
+/* Enhanced Search Box */
 .search-container {
     position: relative;
     display: flex;
-    max-width: 650px;
+    max-width: 700px;
     margin: 0 auto 1.5rem;
     border-radius: 50px;
     overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-    animation: fadeInUp 1.6s ease-out, glowPulse 3s infinite alternate;
-    background-color: rgba(255, 255, 255, 0.95);
+    background: linear-gradient(135deg, #E63946, #FF6B6B);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s, box-shadow 0.3s;
-    transform: translateZ(0);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+}
+
+.search-container:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(230, 57, 70, 0.4);
+}
+
+.search-wrapper {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+}
+
+.search-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 1.3rem;
+    transition: transform 0.3s, color 0.3s;
+    z-index: 2;
+}
+
+.search-wrapper:focus-within .search-icon {
+    color: #FFD1D1;
+    transform: translateY(-50%) scale(1.1);
+}
+
+#search-input {
+    flex: 1;
+    width: 100%;
+    padding: 1.2rem 1.2rem 1.2rem 50px;
+    border: none;
+    font-size: 1.1rem;
+    outline: none;
+    font-family: var(--body-font);
+    background-color: transparent;
+    color: white;
+    z-index: 1;
+    position: relative;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#search-input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+    opacity: 0.8;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+#search-input:focus::placeholder {
+    opacity: 0.5;
+    transform: translateX(5px);
+}
+
+#search-btn {
+    background: white;
+    color: var(--primary-color);
+    border: none;
+    padding: 0 2rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 0 50px 50px 0;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+
+#search-btn:hover {
+    background: #FFD1D1;
+    color: var(--primary-hover);
+    transform: translateX(3px);
+}
+
+#search-btn span {
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s;
+}
+
+#search-btn:hover span {
+    transform: scale(1.05);
+}
+
+.btn-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    opacity: 0;
+}
+
+#search-btn:hover .btn-pulse {
+    animation: btnPulse 1.5s infinite;
 }
 
 @keyframes glowPulse {
