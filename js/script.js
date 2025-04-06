@@ -182,49 +182,85 @@ function setupEventListeners() {
     
     // Feedback form handling
     const feedbackForm = document.getElementById('feedback-form');
+    const ratingIcons = document.querySelectorAll('.rating-icons i');
     const satisfactionRatingField = document.getElementById('satisfaction-rating');
+    
     if (feedbackForm) {
         feedbackForm.addEventListener('submit', function(e) {
-            // Don't prevent default - allow form to submit to Formspree
+            e.preventDefault(); // Prevent default form submission
             
-            // Show toast message
-            setTimeout(() => {
-                showToast('Thank you for your feedback!');
-                
-                // Reset rating icons after form submission
-                ratingIcons.forEach(icon => {
-                    icon.classList.remove('selected');
-                });
-                
-                // Reset rating value
-                if (satisfactionRatingField) {
-                    satisfactionRatingField.value = '';
+            // Create form data object from the form
+            const formData = new FormData(this);
+            
+            // Display loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = "Sending...";
+            submitBtn.disabled = true;
+            
+            // Submit form using Fetch API
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
                 }
-            }, 1000);
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Reset form
+                    feedbackForm.reset();
+                    
+                    // Reset rating icons
+                    ratingIcons.forEach(icon => {
+                        icon.classList.remove('selected');
+                    });
+                    
+                    // Reset rating value
+                    if (satisfactionRatingField) {
+                        satisfactionRatingField.value = '';
+                    }
+                    
+                    // Show success message
+                    showToast('Thank you for your feedback!');
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showToast('Something went wrong. Please try again later.');
+            })
+            .finally(() => {
+                // Restore button state
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+            });
         });
     }
     
     // Rating icons in feedback section
-    const ratingIcons = document.querySelectorAll('.rating-icons i');
-    ratingIcons.forEach(icon => {
-        icon.addEventListener('click', function() {
-            // Remove selected class from all icons
-            ratingIcons.forEach(i => i.classList.remove('selected'));
-            
-            // Add selected class to this icon and all previous icons
-            const rating = parseInt(this.dataset.rating);
-            ratingIcons.forEach(i => {
-                if (parseInt(i.dataset.rating) <= rating) {
-                    i.classList.add('selected');
+    if (ratingIcons) {
+        ratingIcons.forEach(icon => {
+            icon.addEventListener('click', function() {
+                // Remove selected class from all icons
+                ratingIcons.forEach(i => i.classList.remove('selected'));
+                
+                // Add selected class to this icon and all previous icons
+                const rating = parseInt(this.dataset.rating);
+                ratingIcons.forEach(i => {
+                    if (parseInt(i.dataset.rating) <= rating) {
+                        i.classList.add('selected');
+                    }
+                });
+                
+                // Store rating in hidden form field
+                if (satisfactionRatingField) {
+                    satisfactionRatingField.value = rating;
                 }
             });
-            
-            // Store rating in hidden form field
-            if (satisfactionRatingField) {
-                satisfactionRatingField.value = rating;
-            }
         });
-    });
+    }
 }
 
 // Handle search functionality
