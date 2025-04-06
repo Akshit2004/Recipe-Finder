@@ -35,6 +35,7 @@ function initializeApp() {
     populateFooterCategories();
     setupEventListeners();
     setupAutocomplete();
+    // debugAutocomplete(); // Uncomment this line to debug autocomplete on page load
 }
 
 function setupEventListeners() {
@@ -194,8 +195,10 @@ function debounce(func, delay) {
 }
 
 function setupAutocomplete() {
+    console.log("Setting up autocomplete...");
     searchInput.addEventListener('input', debounce(function() {
         const query = this.value.trim();
+        console.log("Autocomplete query:", query);
         if (query.length < 2) {
             hideAutocomplete();
             return;
@@ -206,19 +209,23 @@ function setupAutocomplete() {
 
 async function fetchAutocompleteSuggestions(query) {
     try {
-        const response = await fetch(`${API_BASE_URL}/search.php?f=${query.charAt(0)}`);
+        const response = await fetch(`${API_BASE_URL}/search.php?s=${encodeURIComponent(query)}`);
         const data = await response.json();
+        
         if (!data.meals) {
             showNoSuggestions();
             return;
         }
-        const filteredMeals = data.meals.filter(meal => 
-            meal.strMeal.toLowerCase().includes(query.toLowerCase())
-        ).slice(0, 6);
+        
+        const filteredMeals = data.meals
+            .filter(meal => meal.strMeal.toLowerCase().includes(query.toLowerCase()))
+            .slice(0, 6);
+            
         if (filteredMeals.length === 0) {
             showNoSuggestions();
             return;
         }
+        
         displayAutocompleteSuggestions(filteredMeals);
     } catch (error) {
         console.error('Error fetching autocomplete suggestions:', error);
@@ -228,22 +235,41 @@ async function fetchAutocompleteSuggestions(query) {
 
 function displayAutocompleteSuggestions(meals) {
     autocompleteContainer.innerHTML = '';
+    
     meals.forEach((meal, index) => {
         const item = document.createElement('div');
         item.className = 'autocomplete-item';
         item.setAttribute('data-index', index);
         item.setAttribute('data-id', meal.idMeal);
+        
+        const category = meal.strCategory || 'Meal';
+        const area = meal.strArea || 'Various';
+        
         item.innerHTML = `
             <i class="fas fa-utensils suggestion-icon"></i>
             ${meal.strMeal}
-            <span class="suggestion-type">${meal.strCategory} | ${meal.strArea}</span>
+            <span class="suggestion-type">${category} | ${area}</span>
         `;
+        
         item.addEventListener('click', function() {
             selectAutocompleteSuggestion(meal.strMeal, meal.idMeal);
         });
+        
         autocompleteContainer.appendChild(item);
     });
+    
     showAutocomplete();
+}
+
+function debugAutocomplete() {
+    console.log("Autocomplete container:", autocompleteContainer);
+    console.log("Search input:", searchInput);
+    
+    if (window.getComputedStyle(autocompleteContainer).display === 'none') {
+        console.log("Autocomplete container is hidden");
+    } else {
+        console.log("Autocomplete container is visible");
+    }
 }
 
 function showNoSuggestions() {

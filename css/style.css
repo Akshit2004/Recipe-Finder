@@ -459,6 +459,11 @@ input:checked + .slider:before {
     display: none;
 }
 
+[data-theme="dark"] .autocomplete-container {
+    background: var(--bg-light);
+    border: 1px solid var(--border-color);
+}
+
 .autocomplete-item {
     padding: 0.8rem 1rem 0.8rem 55px;
     cursor: pointer;
@@ -477,31 +482,8 @@ input:checked + .slider:before {
     background-color: rgba(0, 0, 0, 0.05);
 }
 
-.autocomplete-item .suggestion-icon {
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--primary-color);
-    font-size: 1rem;
-    opacity: 0.7;
-}
-
-.autocomplete-item .suggestion-type {
-    font-size: 0.8rem;
-    color: var(--text-light);
-    display: block;
-}
-
-.no-suggestions {
-    padding: 0.8rem 1rem;
-    color: var(--text-light);
-    text-align: center;
-    font-style: italic;
-}
-
-[data-theme="dark"] .autocomplete-container {
-    background: var(--bg-light);
+[data-theme="dark"] .autocomplete-item {
+    color: #ffffff;
 }
 
 [data-theme="dark"] .autocomplete-item:hover, 

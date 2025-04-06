@@ -111,11 +111,11 @@ python -m http.server 8000
 
 ## 🚧 Roadmap
 
-- [ ] **Q2 2023:** Recipe ratings and reviews system
-- [ ] **Q3 2023:** Custom recipe creation tools
-- [ ] **Q3 2023:** Grocery list generation from recipes
-- [ ] **Q4 2023:** Family meal planning calendar
-- [ ] **Q1 2024:** iOS app development
+- [ ]  Recipe ratings and reviews system
+- [ ]  Custom recipe creation tools
+- [ ]  Grocery list generation from recipes
+- [ ]  Family meal planning calendar
+- [ ]  iOS app development
 
 ## 🤝 Contributing
 
@@ -144,7 +144,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 <div align="center">
   <p>Made with ❤️ by <a href="https://github.com/Akshit2004">Akshit Mahajan</a></p>
   <p>
-    <a href="https://twitter.com/yourtwitter"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" height="25"></a>
-    <a href="https://linkedin.com/in/yourlinkedin"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" height="25"></a>
+    
+    <a href="https://www.linkedin.com/in/akshit0mahajan/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" height="25"></a>
   </p>
 </div>
