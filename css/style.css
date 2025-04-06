@@ -1543,6 +1543,351 @@ footer {
     font-size: 0.9rem;
 }
 
+/* App Download Section */
+.app-download-section {
+    padding: 5rem 0;
+    background-color: var(--bg-light);
+    transition: background-color var(--transition-medium);
+}
+
+.app-download-content {
+    display: flex;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    gap: 3rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.app-info {
+    flex: 1;
+    text-align: left;
+}
+
+.app-info h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+.app-info p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.app-features {
+    list-style: none;
+    margin-bottom: 2.5rem;
+    padding-left: 0;
+}
+
+.app-features li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.app-features li i {
+    color: var(--primary-color);
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+
+.app-download-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all var(--transition-medium);
+    margin-bottom: 1rem;
+    text-decoration: none;
+}
+
+.download-btn:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+    color: white;
+}
+
+.download-btn i {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+.app-note {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+.app-image {
+    flex: 0 0 300px;
+    position: relative;
+    text-align: center;
+}
+
+.app-image img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Feedback Section */
+.feedback-section {
+    padding: 5rem 0;
+    background-color: var(--bg-color);
+    transition: background-color var(--transition-medium);
+}
+
+.feedback-content {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.feedback-content h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.feedback-content > p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto 3rem;
+}
+
+.feedback-container {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+    text-align: left;
+    background-color: var(--bg-light);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: var(--card-shadow);
+    flex-wrap: wrap;
+}
+
+.feedback-info {
+    flex: 1;
+}
+
+.feedback-icon {
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.feedback-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.feedback-info p {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.satisfaction-rating {
+    margin-top: 2rem;
+}
+
+.satisfaction-rating p {
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.rating-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.rating-icons i {
+    font-size: 2rem;
+    color: var(--text-lighter);
+    cursor: pointer;
+    transition: all var(--transition-medium);
+}
+
+.rating-icons i:hover {
+    transform: scale(1.2);
+    color: var(--primary-color);
+}
+
+.rating-icons i.selected {
+    color: var(--primary-color);
+}
+
+.feedback-form {
+    flex: 1;
+    background-color: var(--bg-color);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-family: var(--body-font);
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    transition: all var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(230, 57, 70, 0.2);
+    outline: none;
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* Feedback Section - Mobile Alignment Fix */
+@media (max-width: 576px) {
+    .feedback-container {
+        flex-direction: column;
+        align-items: center; /* Center align the content */
+        text-align: center; /* Center align text */
+        padding: 1.5rem 1rem;
+    }
+
+    .feedback-info {
+        text-align: center; /* Center align the feedback info */
+    }
+
+    .satisfaction-rating {
+        text-align: center; /* Center align the rating section */
+    }
+
+    .feedback-form {
+        width: 100%; /* Ensure the form takes full width */
+        max-width: 400px; /* Limit the form width */
+    }
+}
+
+/* Responsive design for App Download and Feedback sections */
+@media (max-width: 991px) {
+    .app-download-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .app-features li {
+        justify-content: center;
+    }
+    
+    .app-download-buttons {
+        align-items: center;
+    }
+    
+    .app-image {
+        flex: 0 0 auto;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+    
+    .feedback-container {
+        flex-direction: column;
+        padding: 2rem 1.5rem;
+    }
+    
+    .rating-icons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .app-download-section,
+    .feedback-section {
+        padding: 4rem 0;
+    }
+    
+    .app-info h2,
+    .feedback-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .app-image {
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    .app-download-content,
+    .feedback-content {
+        padding: 0 1rem;
+    }
+    
+    .feedback-container {
+        padding: 1.5rem 1rem;
+    }
+    
+    .app-info p,
+    .feedback-content > p {
+        font-size: 1rem;
+    }
+    
+    .download-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .feedback-form {
+        padding: 1.5rem 1rem;
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     .hero h2 {
