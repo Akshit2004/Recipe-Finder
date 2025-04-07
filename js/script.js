@@ -35,7 +35,7 @@ function initializeApp() {
     populateFooterCategories();
     setupEventListeners();
     setupAutocomplete();
-    // debugAutocomplete(); // Uncomment this line to debug autocomplete on page load
+    
 }
 
 function setupEventListeners() {
